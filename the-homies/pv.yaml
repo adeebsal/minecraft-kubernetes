@@ -1,0 +1,7 @@
+# creating the persistent volume and claim for the server
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: thehomies-pv
+spec:
+  
