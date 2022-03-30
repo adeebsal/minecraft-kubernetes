@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: thehomiesmc
+spec:
+  replicas: 1 #only one mc server
+  strategy:
+    type: Recreate
+  template:
+    spec:
+      containers:
+      - name: minecraft
+        image: itzg/minecraft-server
+        resources:
+          requests:
+            memory: 8Gi
+            cpu: 1
+        env:
+          #insert env vars in here
+        ports:
+        - containerPort: 25565
+          name: minecraft
+        volumeMounts:
+        - name: thehomiesmc
+          mountPath: /data
+      volumes:
+      - name: thehomiesmc
+        persistentVolumeClaim:
+          claimName: thehomies-pvc
