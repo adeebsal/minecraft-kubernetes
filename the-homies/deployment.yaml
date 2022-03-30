@@ -16,7 +16,14 @@ spec:
             memory: 8Gi
             cpu: 1
         env:
-          #insert env vars in here
+        - name: EULA
+          value: TRUE
+        - name: TYPE
+          value: FORGE
+        - name: VERSION
+          value: 1.18.1
+        - name: MEMORY
+          value: 8G
         ports:
           containerPort: 25565
           hostPort: 25565
