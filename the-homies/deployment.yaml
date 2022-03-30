@@ -6,7 +6,13 @@ spec:
   replicas: 1 #only one mc server
   strategy:
     type: Recreate
+  selector:
+    matchLabels:
+      app: minecraft
   template:
+    metadata:
+      labels:
+        app: minecraft
     spec:
       containers:
       - name: minecraft
