@@ -31,6 +31,7 @@ spec:
         - name: MEMORY
           value: 8G
         ports:
+        - name: server-port
           containerPort: 25565
           hostPort: 25565
         volumeMounts:
