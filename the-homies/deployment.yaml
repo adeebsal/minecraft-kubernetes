@@ -23,11 +23,11 @@ spec:
             cpu: 1
         env:
         - name: EULA
-          value: TRUE
+          value: "TRUE"
         - name: TYPE
           value: FORGE
         - name: VERSION
-          value: 1.18.1
+          value: "1.18.1"
         - name: MEMORY
           value: 8G
         ports:
