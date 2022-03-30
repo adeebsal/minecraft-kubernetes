@@ -40,4 +40,4 @@ spec:
       volumes:
       - name: thehomiesmc
         persistentVolumeClaim:
-          claimName: thehomies-pvc
+          claimName: thehomiesmc-pvc
