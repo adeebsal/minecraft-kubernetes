@@ -18,8 +18,8 @@ spec:
         env:
           #insert env vars in here
         ports:
-        - containerPort: 25565
-          name: minecraft
+          containerPort: 25565
+          hostPort: 25565
         volumeMounts:
         - name: thehomiesmc
           mountPath: /data
