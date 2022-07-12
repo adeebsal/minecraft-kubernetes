@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: thehomiesmc
+  name: vanillamc
 spec:
   replicas: 1 #only one mc server
   strategy:
@@ -19,25 +19,33 @@ spec:
         image: itzg/minecraft-server
         resources:
           requests:
-            memory: 8Gi
+            memory: 4Gi
             cpu: 1
         env:
         - name: EULA
           value: "TRUE"
         - name: TYPE
-          value: FORGE
+          value: PAPER
         - name: VERSION
-          value: "1.18.1"
+          value: "LATEST"
         - name: MEMORY
-          value: 8G
+          value: 4G
+        - name: MODS_FILE
+          value: /data/mods.txt
+        - name: SEED
+          value: "Glacier"
+        - name: VIEW_DISTANCE
+          value: "16"
+        - name: OPS
+          value: adeeb7861
         ports:
         - name: server-port
           containerPort: 25565
-          hostPort: 25566
+          hostPort: 25565
         volumeMounts:
-        - name: thehomiesmc
+        - name: vanillamc
           mountPath: /data
       volumes:
-      - name: thehomiesmc
+      - name: vanillamc
         persistentVolumeClaim:
-          claimName: thehomiesmc-pvc
+          claimName: vanillamc-pvc

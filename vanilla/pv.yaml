@@ -1,0 +1,25 @@
+# creating the persistent volume and claim for the server
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: vanillamc-pv
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 25Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/serverdata/vanillamc"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: vanillamc-pvc
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 25Gi
